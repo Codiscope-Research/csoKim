@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         http://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<!--
+    Validation Rules for the Struts MailReader Web Application
+
+    $Id: validation.xml 481833 2006-12-03 17:32:52Z niallp $
+-->
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+       
+        <constant>
+            <constant-name>telefono</constant-name>
+            <constant-value>^\d{9,10}$</constant-value>
+        </constant>   
+        
+    </global>
+
+    <formset>
+
+        <!-- An example form -->
+
+         <form name="PaginadoForm"  >
+            <field property="pagina" depends="integer,intRange">
+                <arg position="0" key="txt.pagina"/>
+                <arg position="1" name="intRange" key="${var:min}" resource="false"/>
+                <arg position="1" name="intRange" key="${var:max}" resource="false"/>
+                <var><var-name>min</var-name><var-value>0</var-value></var>
+                <var><var-name>max</var-name><var-value>99999</var-value></var>
+
+            </field>         
+
+            <field property="rpp" depends="integer,intRange">
+                <arg position="0" key="txt.reg.per.pag"/>
+                <arg position="1" name="intRange" key="${var:min}" resource="false"/>
+                <arg position="1" name="intRange" key="${var:max}" resource="false"/>
+                <var><var-name>min</var-name><var-value>0</var-value></var>
+                <var><var-name>max</var-name><var-value>999</var-value></var>
+
+            </field>             
+        </form>
+        <form name="BusquedaGestionFacturasForm"  >
+            <field property="f_impdesde" depends="double">
+                <arg position="0" key="txt.consulta.form.importe"/>                
+            </field>         
+
+            <field property="f_imphasta" depends="double">
+                <arg position="0" key="txt.consulta.form.importe"/>                
+            </field>             
+        </form>
+         <form name="BusquedaNoConformidadesForm"  >
+           
+        </form>
+        <form name="GestioUsuarisForm"  >
+				    <field property="f_perfil" depends="required">
+                <arg position="0" key="manteniments.perfil"/>
+            </field>  
+        </form>
+        
+  
+    </formset>    
+    
+</form-validation>

@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<!-- INICI FORMS DEL GDS USERS -->
+		<form-bean name="LoginForm" type="es.intos.gdscso.forms.gdsusers.LoginForm" />
+		<form-bean name="BusquedaGestionServiciosForm"
+			type="es.intos.gdscso.forms.consulta.BusquedaGestionServiciosForm" />
+		<form-bean name="BusquedaGestionFacturasForm"
+			type="es.intos.gdscso.forms.consulta.BusquedaGestionFacturasForm" />
+		<form-bean name="GestionFacturasForm"
+			type="es.intos.gdscso.forms.gestio.GestionFacturasForm" />
+		<form-bean name="GenerarFacturasForm"
+			type="es.intos.gdscso.forms.generar.GenerarFacturasForm" />
+		<form-bean name="GestioUsuarisForm" type="es.intos.gdscso.forms.admin.GestioUsuarisForm"/>
+		<form-bean name="BusquedaNoConformidadesForm"
+			type="es.intos.gdscso.forms.partes.BusquedaNoConformidadesForm" />
+		<form-bean name="BusquedaComparativaServeisForm"
+			type="es.intos.gdscso.forms.manteniments.BusquedaComparativaServeisForm" />
+		<form-bean name="GestionFacturasGeneraExcelForm"
+			type="es.intos.gdscso.forms.control.GestionFacturasGeneraExcelForm" />		
+		<form-bean name="FactorsForm"
+			type="es.intos.gdscso.forms.manteniments.FactorsForm" />
+		<form-bean name="FactorsFacturaForm"
+			type="es.intos.gdscso.forms.generar.FactorsForm" />
+		<form-bean name="ImportPactatForm"
+			type="es.intos.gdscso.forms.manteniments.ImportPactatForm" />	
+		<form-bean name="PartidaGeneraExcelForm"
+			type="es.intos.gdscso.forms.partides.PartidaGeneraExcelForm" />				
+		
+		<form-bean name="ModificarFacturasForm"
+			type="es.intos.gdscso.forms.modificar.ModificaFacturaForm" />													
+			
+ 		<form-bean name="dynamicLogin"  type="org.apache.struts.action.DynaActionForm">
+            <form-property name="username" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="complexForm" type="servletunit.struts.tests.ComplexForm"/>
+        <form-bean name="nullPointerForm" type="servletunit.struts.tests.NullPointerForm"/>
+        <form-bean name="complexForm" type="servletunit.struts.tests.ComplexForm"/>					
+			
+
+	</form-beans>
+
+	<!-- ========================================= Global Exception Definitions -->
+
+	<global-exceptions>
+
+
+		<exception key="error.acceso.denegado"
+			type="es.intos.gdscso.exceptions.AccesoDenegadoException" path="/web/error/Error.jsp" />
+		<exception key="error.sesion.caducada"
+			type="es.intos.gdscso.exceptions.SesionCaducadaException" path="/web/error/Error.jsp" />
+
+		<exception key="error.acceso.basedats" type="java.sql.SQLException"
+			path="/web/error/Error.jsp" />
+		<exception key="error.webapp.excepti2" handler="es.intos.gdscso.actions.ExceptionAction"
+			type="java.lang.Exception" path="/web/error/Error.jsp" />
+
+		<exception key="error.webapp.excepti2" type="es.intos.gdscso.exceptions.ModalException"
+			path="/web/error/errorModal.jsp" />
+		<exception key="error.registro.duplicado"
+			type="es.intos.gdscso.exceptions.DuplicadoException" path="/web/error/Error.jsp" />
+	</global-exceptions>
+
+	<!-- =========================================== Global Forward Definitions -->
+	<global-forwards>
+		<!-- Default forward to "Welcome" action -->
+		<!-- Demonstrates using index.jsp to forward -->
+		<forward name="failure" path="/Error.do" />
+	</global-forwards>
+	<!-- =========================================== Action Mapping Definitions -->
+
+	<action-mappings>
+
+		<!-- INICI: ACTION ACCES SERVIDOR SEGUR -->
+		<action path="/SegurSSmtoGdsCusas" type="es.intos.gdscso.segurSS.SegurSSmtoGdsCusas"
+			validate="false">
+			<forward name="Success" path="/web/pantallas/segurSS/SegurSSmtoGdsCusas.jsp" />
+		</action>
+		<!-- FI: ACTION ACCES SERVIDOR SEGUR -->
+
+		<!-- INICI: ACTION DE CRIDA DEL PORTAL -->
+		<action path="/portal" type="es.intos.gdscso.actions.portalAction">
+			<forward name="Success" path="/web/pantallas/portal/portal.jsp" />
+			<forward name="enconstruccion"
+				path="/web/pantallas/enconstruccion/enconstruccion.jsp" />
+		</action>
+		<!-- FI: ACTION DE CRIDA DEL PORTAL -->
+
+
+		<!-- INICI: ACTION DE CRIDA DEL GDS USERS -->
+		<action path="/gdsusers" type="es.intos.gdscso.actions.gdsusers.PreLoginAction"
+			name="LoginForm">
+			<forward name="Success" path="/web/pantallas/portal/gdsusers/gdsusers.jsp" />
+		</action>
+		<action path="/gdsusers/loginAction" type="es.intos.gdscso.actions.gdsusers.LoginAction"
+			name="LoginForm">
+			<forward name="Failure" path="/web/pantallas/portal/gdsusers/gdsusers.jsp" />
+			<forward name="Success" path="/portal.do" />
+		</action>
+		<!-- FI: ACTION DE CRIDA DEL GDS USERS -->
+
+		<!-- INICI ACTIONS GENERALS -->
+		<action path="/Error" forward="/web/error/Error.jsp"></action>
+		<action path="/StaticJavascript" forward="/web/js/StaticJavascript.jsp"></action>
+		<!-- FI ACTIONS GENERALS -->
+
+		<!-- INICI: ACTION ADMINISTRACIÓ -->
+		<action path="/PortalAdministacionAction"
+			type="es.intos.gdscso.actions.PortalAdministracionAction" scope="request"
+			validate="false">
+			<forward name="Success"
+				path="/web/pantallas/portal/administracion/admin.jsp" />
+			<forward name="enconstruccion"
+				path="/web/pantallas/enconstruccion/enconstruccion.jsp" />
+		</action>
+		<action path="/PreBusquedaGestionServiciosAction"
+			type="es.intos.gdscso.actions.consulta.PreBusquedaGestionAction"
+			name="BusquedaGestionServiciosForm" scope="request" validate="false">
+			<forward name="Success" path="/web/pantallas/consulta/consulta.jsp" />
+		</action>
+			<!-- INI: ACTION Per generar facturas -->
+		<action path="/PreGenerarFacturaAction"
+			type="es.intos.gdscso.actions.generar.PreGenerarFacturaAction" scope="request"
+			validate="false">
+			<forward name="Success" path="/web/pantallas/generar/generar.jsp" />
+		</action>
+		<action path="/GenerarFacturaAction"
+			type="es.intos.gdscso.actions.generar.GenerarFacturaAction" scope="request"
+			validate="false">
+			<forward name="Success" path="/web/pantallas/generar/generar.jsp" />
+		</action>
+		<action path="/AjaxTableCsoSrvAction" type="es.intos.gdscso.actions.generar.AjaxTableCsoSrvAction"
+			scope="request" validate="false">
+		</action>	
+		<action path="/AjaxTableSrvDispAction" type="es.intos.gdscso.actions.generar.AjaxTableSrvDispAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/AjaxSelectFacturesHomonimesAction" type="es.intos.gdscso.actions.generar.AjaxSelectFacturesHomonimesAction"
+			scope="request" validate="false">
+		</action>				
+		<action path="/SaveFacturaAction"
+			type="es.intos.gdscso.actions.generar.SaveFacturaAction" scope="request"
+			validate="false"  name="GenerarFacturasForm">
+			<forward name="Success" path="/PreGenerarFacturaAction.do" />
+		</action>			
+		 <action path="/AjaxLoadFactorsFacturaAction" type="es.intos.gdscso.actions.generar.AjaxLoadFactorsFacturaAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/GuardarFactorsFacturaAction"
+			type="es.intos.gdscso.actions.generar.GuardarFactorsFacturaAction"
+			scope="request" validate="false" name="FactorsFacturaForm">
+				<forward name="Success"
+				path="/PreBusquedaGestionFacturasAction.do" />
+		</action>
+		<!-- FI: ACTION Per generar facturas -->
+		<!-- INI: ACTION Per partides -->
+		<action path="/FacturacionPartidasAction"
+			type="es.intos.gdscso.actions.facturacion.FacturacionPartidasAction"
+			scope="request" validate="false">
+			<forward name="Success"
+				path="/web/pantallas/facturacion/facturacionPartidas.jsp" />
+		</action>		
+		<action path="/DetallePartidaAction"
+			type="es.intos.gdscso.actions.facturacion.DetallePartidaAction"
+			scope="request" validate="false">
+			<forward name="Success"
+				path="/web/pantallas/detallePartida/detallePartida.jsp" />
+		</action>	
+				
+		<action path="/AjaxTablePartidesAction" type="es.intos.gdscso.actions.facturacion.AjaxTablePartidesAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/AjaxTableFacturacionPartidesAction" type="es.intos.gdscso.actions.facturacion.AjaxTableFacturacionPartidesAction"
+			scope="request" validate="false">
+		</action>	
+		<action path="/AjaxTableDetallPartidaAction" type="es.intos.gdscso.actions.facturacion.AjaxTableDetallPartidaAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/PartidaGeneraExcelAction" 
+			type="es.intos.gdscso.actions.facturacion.PartidaGeneraExcelAction"
+			name="PartidaGeneraExcelForm"
+			scope="request" validate="false">
+		</action>
+		<!-- FI: ACTION Per partides -->
+		<!-- INI: ACTION Per consultar facturas -->
+		<action path="/PreBusquedaGestionFacturasAction"
+			type="es.intos.gdscso.actions.consulta.PreBusquedaGestionAction" name="BusquedaGestionFacturasForm"
+			scope="request" validate="false">
+			<forward name="Success" path="/web/pantallas/consulta/consulta.jsp" />
+		</action>
+		<action path="/BusquedaGestionFacturasAction"
+			type="es.intos.gdscso.actions.consulta.BusquedaGestionAction" name="BusquedaGestionFacturasForm"
+			scope="session" validate="false">
+			<forward name="Success" path="/web/pantallas/consulta/consulta.jsp" />
+		</action>
+		<action path="/GeneraFacturasExcelAction"
+			type="es.intos.gdscso.actions.consulta.GeneraFacturasExcelAction" name="BusquedaGestionFacturasForm"
+			scope="request" validate="false">
+		</action>
+		<!-- FI: ACTION Per consultar facturas -->
+		<!-- INI: ACTION Per gestió de factures -->
+		<action path="/GestioFacturaAction"
+			type="es.intos.gdscso.actions.gestio.GestioFacturaAction" scope="request"
+			validate="false"  name="GestionFacturasForm">
+			<forward name="Success" path="/web/pantallas/gestio/gestio.jsp" />
+			<forward name="Wrongparams" path="/PreBusquedaGestionFacturasAction.do" />
+		</action>
+		<action path="/ChangeStatFacturaAction"
+			type="es.intos.gdscso.actions.gestio.ChangeStatFacturaAction" scope="request"
+			validate="false"  name="GestionFacturasForm">
+			<forward name="Success" path="/GestioFacturaAction.do" />
+		</action>
+		<action path="/FacturaSaveAction"
+			type="es.intos.gdscso.actions.gestio.FacturaSaveAction" scope="request"
+			validate="false"  name="GestionFacturasForm">
+			<forward name="Success" path="/GestioFacturaAction.do" />
+		</action>		
+		<action path="/AjaxTableFactSrvAction" type="es.intos.gdscso.actions.AjaxTableFactSrvAction"
+			scope="request" validate="false">
+		</action>	
+		<action path="/FacturaPDFAction"
+                type="es.intos.gdscso.actions.gestio.FacturaPDFAction"
+                name="GestionFacturasForm"
+                scope="request"
+                validate="false">
+        </action>
+        <action path="/DownloadPDF"
+                type="es.intos.gdscso.actions.gestio.DownloadPDF"                
+                scope="request"
+                validate="false">
+        </action>
+         <action path="/DeletePDF"
+                type="es.intos.gdscso.actions.gestio.DeletePDF"                
+                scope="request"                
+                validate="false">               	
+        </action>
+        <action path="/EditFacturaAction"
+			type="es.intos.gdscso.actions.gestio.EditFacturaAction" scope="request"
+			validate="false"  name="GestionFacturasForm">
+			<forward name="Success" path="/web/pantallas/modificar/modificar.jsp" />
+			<forward name="Wrongparams" path="/GestioFacturaAction.do" />	
+							
+		</action>
+		<action path="/AjaxTableModifFactAction" type="es.intos.gdscso.actions.modificar.AjaxTableSrvDispAction"
+			scope="request" validate="false">
+		</action>	
+		 <action path="/ModificaFacturaAction"
+			type="es.intos.gdscso.actions.modificar.ModificaFacturaAction" scope="request"
+			validate="false"  name="ModificarFacturasForm">
+			<forward name="Success" path="/PreBusquedaGestionFacturasAction.do" />					
+		</action>
+		
+		<!-- FI: ACTION Per gestió de factures -->
+		<!-- INI: ACTION Per manteniments -->
+		<action path="/admin/MantenimentLineasAction"
+			type="es.intos.gdscso.actions.manteniments.MantenimentLineasAction"
+			scope="request" validate="false">
+			<forward name="Success"
+				path="/web/pantallas/manteniments/partides/mantenimentLineas.jsp" />
+		</action>
+		<action path="/admin/MantenimentPreusAction"
+			type="es.intos.gdscso.actions.manteniments.MantenimentPreusAction"
+			scope="request" validate="false">
+			<forward name="Success"
+				path="/web/pantallas/manteniments/preus/mantenimentPreus.jsp" />
+		</action>
+		<action path="/admin/MantenimentServAction"
+			type="es.intos.gdscso.actions.manteniments.MantenimentServAction"
+			scope="request" validate="false" name="BusquedaComparativaServeisForm">
+			<forward name="Success"
+				path="/web/pantallas/manteniments/serveis/mantenimentServ.jsp" />
+		</action>
+		<action path="/AjaxLoadDataTableAction" type="es.intos.gdscso.actions.AjaxLoadDataTableAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/AjaxLoadTableSrvDispAction" type="es.intos.gdscso.actions.manteniments.AjaxLoadTableSrvDispAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/AjaxLoadTableSrvPartidaAction" type="es.intos.gdscso.actions.manteniments.AjaxLoadTableSrvPartidaAction"
+			scope="request" validate="false">
+		</action>		
+		<action
+            path="/admin/PreGestioUsuarisAction"
+            type="es.intos.gdscso.actions.manteniments.PreGestioUsuarisAction"
+              name="GestioUsuarisForm"
+            scope="request"
+            validate="false">
+            <forward name="Failure" path="/web/pantallas/manteniments/usuaris/usuaris.jsp"/>
+            <forward name="Success" path="/web/pantallas/manteniments/usuaris/usuaris.jsp"/>            
+        </action>
+           <action
+            path="/admin/GestioUsuarisAction"
+            type="es.intos.gdscso.actions.manteniments.GestioUsuarisAction"
+              name="GestioUsuarisForm"
+            scope="request"
+            validate="false">
+            <forward name="Failure" path="/web/pantallas/manteniments/usuaris/usuaris.jsp"/>
+            <forward name="Success" path="/web/pantallas/manteniments/usuaris/usuaris.jsp"/>           
+        </action>
+        <action path="/AjaxLoadFactorsCrecimientoAction" type="es.intos.gdscso.actions.manteniments.AjaxLoadFactorsCrecimientoAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/GuardaFactorsAction"
+			type="es.intos.gdscso.actions.manteniments.GuardarFactorsAction"
+			scope="request" validate="false" name="FactorsForm">
+				<forward name="Success"
+				path="/web/pantallas/manteniments/partides/mantenimentLineas.jsp" />
+		</action>
+		<action path="/admin/MantenimentImportsPactatsAction"
+			type="es.intos.gdscso.actions.manteniments.MantenimentImportsPactatsAction"
+			scope="request" validate="false"  name="ImportPactatForm">
+			<forward name="Success"
+				path="/web/pantallas/manteniments/importPactat/mantenimentImportPactats.jsp" />
+		</action>
+		<action path="/admin/SaveImportPactatAction"
+			type="es.intos.gdscso.actions.manteniments.SaveImportPactatAction"
+			scope="request" validate="false" name="ImportPactatForm">
+			<forward name="Success"
+				path="/admin/MantenimentImportsPactatsAction.do" />
+		</action>
+		<action path="/AjaxGetImporteAction" type="es.intos.gdscso.actions.manteniments.AjaxGetImporteAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/GeneraExcelServeisAction"
+			type="es.intos.gdscso.actions.manteniments.GeneraExcelServeisAction" 
+			scope="request" validate="false" name="BusquedaComparativaServeisForm">
+		</action>	
+		<action path="/admin/AjaxGetCsoAction" type="es.intos.gdscso.actions.manteniments.AjaxGetCsoAction"
+			scope="request" validate="false">
+		</action>	
+		<action
+            path="/admin/GestioCSOAction"
+            type="es.intos.gdscso.actions.manteniments.MantenimentCSOAction"            
+            scope="request"
+            validate="false">
+            <forward name="Failure" path="/web/pantallas/manteniments/cso/mantenimentCSO.jsp"/>
+            <forward name="Success" path="/web/pantallas/manteniments/cso/mantenimentCSO.jsp"/>           
+        </action>
+		<!-- FI: ACTION Per manteniments -->
+		
+		<!-- INICI: ACTION Per partes -->
+		<action path="/PartesAction"
+			type="es.intos.gdscso.actions.partes.PartesAction"
+			scope="request" validate="false" name="BusquedaNoConformidadesForm">
+			<forward name="Success" path="/web/pantallas/partes/partes.jsp" />
+		</action>
+		<action path="/AjaxCargaInfoNoConfirmadosAction" type="es.intos.gdscso.actions.partes.AjaxCargaInfoNoConfirmadosAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/GeneraExcelIncidenciaAction"
+			type="es.intos.gdscso.actions.partes.GeneraExcelIncidenciaAction" 
+			scope="request" validate="false">
+		</action>		
+		<action path="/GeneraExcelParteAction"
+			type="es.intos.gdscso.actions.partes.GeneraExcelParteAction" 
+			scope="request" validate="false" name="BusquedaNoConformidadesForm">
+		</action>
+		
+		<!-- FI: ACTION Per partes -->
+
+		<!-- INI: ACTION Per control -->
+		<action path="/ControlAction"
+			type="es.intos.gdscso.actions.control.ControlAction"
+			scope="request" validate="false">
+			<forward name="Success" path="/web/pantallas/control/control.jsp" />
+		</action>
+		<action path="/AjaxTableCtrlAction" type="es.intos.gdscso.actions.control.AjaxTableCtrlAction"
+			scope="request" validate="false">
+		</action>	
+		<action path="/AjaxTableCtrlSrvAction" type="es.intos.gdscso.actions.control.AjaxTableCtrlSrvAction"
+			scope="request" validate="false">
+		</action>
+		<action path="/GeneraExcelServiciosCsoAction" 
+			type="es.intos.gdscso.actions.control.GeneraExcelServiciosCsoAction"
+			name="GestionFacturasGeneraExcelForm"
+			scope="request" validate="false">
+		</action>
+					
+		<!-- FI: ACTION Per control -->
+		<!-- INI: ACTION Per generacio excel pagades -->
+		<action path="/PreExcelPagadesAction"
+			type="es.intos.gdscso.actions.excelPagades.PreExcelPagadesAction" scope="request"
+			validate="false">
+			<forward name="Success" path="/web/pantallas/excelPagades/excel.jsp" />
+		</action>
+		<action path="/GeneraFacturasPagadasExcelAction" 
+			type="es.intos.gdscso.actions.excelPagades.GeneraFacturasPagadasExcelAction"
+			name="GestionFacturasGeneraExcelForm"
+			scope="request" validate="false">
+		</action>					
+		<!-- FI: ACTION Per generacio excel pagades -->
+		<action path="/PortalAdminAction"
+			type="es.intos.gdscso.actions.manteniments.AdminMantenimentAction" scope="request"
+			validate="false">
+			<forward name="Success" path="/web/pantallas/admin/portal/admin.jsp" />
+		</action>
+		
+		<!-- INI: Actions interns per test -->
+		<action path="/testSetActionForm" type="servletunit.struts.tests.ComplexFormAction" name="complexForm" scope="request"/>
+        <action path="/testMessage" type="servletunit.struts.tests.MessageResourceAction" input="/login/login.jsp" scope="request"/>
+        <action path="/testSimpleForward" forward="/WEB-INF/struts-config.xml"/>
+        <action path="/testRedirect" type="servletunit.struts.tests.RedirectAction" scope="request" />
+        <action path="/testRelativeRedirect" type="servletunit.struts.tests.RedirectAction" scope="request"/>
+        <action path="/testToken" type="servletunit.struts.tests.TokenAction" scope="request"/>
+        <action path="/testNullPointer" type="servletunit.struts.tests.NullPointerAction" scope="request"/>
+        <action path="/testNullPointerForm" name="nullPointerForm" type="servletunit.struts.tests.NullPointerAction" scope="request" validate="true"/>
+        <action path="/testContextParams" type="servletunit.struts.tests.InitParameterAction" scope="request"/>
+        <action path="/testDynamicAction" type="servletunit.struts.tests.DynamicAction" name="dynamicLogin" scope="request"/>
+        <action path="/userAction" type="servletunit.struts.tests.UserAction"/>
+        <action path="/loginNoInput" type="examples.LoginAction" name="loginForm" scope="request"/>
+        <action path="/testSetActionForm" type="servletunit.struts.tests.ComplexFormAction" name="complexForm" scope="request"/>
+        <action path="/testDispatchAction"
+            type="servletunit.struts.tests.MyDispatchAction"
+            parameter="method"
+            scope="request" input="/main/input.jsp">
+            <forward name="action1" path="/main/action1.jsp"/>
+            <forward name="action2" path="/main/action2.jsp"/>
+        </action>
+        <action path="/testActionMessages" type="servletunit.struts.tests.MessageAction" />
+        <action path="/testNullAction" type="servletunit.struts.tests.NullAction" />
+        <action path="/testCustomMapping" type="servletunit.struts.tests.CustomMappingAction" className="org.apache.struts.action.RequestActionMapping" />
+        <action path="/testSetActionForm" type="servletunit.struts.tests.ComplexFormAction" name="complexForm" scope="request"/>
+        <action path="/testRedirectToExternalURL" type="servletunit.struts.tests.RedirectAction">
+            <forward name="redirect" path="http://www.yahoo.com" redirect="true"/>
+        </action>
+        <!-- FI: Actions interns per test -->
+		
+	</action-mappings>
+
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources parameter="es.intos.gdscso.resources.ApplicationResources"
+		null="false" />
+	<!-- <message-resources parameter="es.intos.gdscso.resources.AlternateApplicationResources" 
+		key="alternate"/> -->
+	<message-resources
+		parameter="es.intos.gdscso.resources.admin.ApplicationResources" key="admin"
+		null="false" />
+	<!-- =============================================== Plug Ins Configuration -->
+
+	<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+		<set-property property="stopOnFirstError" value="true" />
+
+	</plug-in>
+</struts-config>
+

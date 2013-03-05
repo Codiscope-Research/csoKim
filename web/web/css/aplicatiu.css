@@ -1,0 +1,285 @@
+.darkClass
+{
+    background-color: white;
+    filter:alpha(opacity=0); /* IE */
+    opacity: 0; /* Safari, Opera */
+    -moz-opacity:0; /* FireFox */
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.missatge-error {
+        margin-top:0px;
+        margin-bottom:0px;
+        padding-bottom:5px;
+}
+
+
+
+.missatge-warning {
+	background: transparent url(/ParticipadasIntosWeb/web/img/modelos/icono-alerta.gif) no-repeat  left top;
+	padding: 0px 0px 0px 0px;
+        margin:0px 0px 0px 0px ;
+        padding-top: 3px;
+        padding-bottom:5px;
+        padding-left: 25px;
+	min-height: 25px;
+        height: 25px;
+
+}
+ 
+
+.missatge-info {
+        padding: 0px 0px 0px 0px;
+        margin:0px 0px 0px 0px ;
+        padding-top: 3px;
+        padding-bottom:5px;
+        padding-left: 25px;
+	min-height: 25px;
+        height: 25px;
+}
+
+table.seleccio thead tr th {
+        font-weight: bold;
+}
+
+
+
+table.noborder {
+  border:none;
+}
+
+table.noborder tr {
+  border:none;
+}
+
+table.noborder tr td {
+  border:none;
+}
+
+.checkVariat {
+     PADDING: 0px 0px 0px 0px;
+     MARGIN:  0px 0px 0px 0px;
+
+     width:15px;
+     text-align: center;
+}
+
+.noborder_transparent {
+     border:none;
+     background-color:transparent;
+}
+
+.text_border {
+    border: 1px solid rgb(90,90,90);
+}
+
+table.no-break tr td {
+  white-space:nowrap;
+}
+
+.scrollY0 {
+width:100%;height:260px;overflow-y:scroll;
+}
+
+.scrollY0Petit {
+width:100%;height:150px;overflow-y:scroll;
+}
+
+.intercell {
+  border-left:#dcdcdc 2px solid;
+}
+
+
+.headfirst {
+border-top:#a5acb2 1px solid;
+}
+
+.headnext {
+border-left: white 2px solid;border-top:#a5acb2 1px solid;
+}
+
+.rompiendo-fila-print {
+display:table;
+}
+
+.width-40 {
+ width:40%;
+}
+
+.width-60 {
+ width:60%;
+}
+
+.ocultoScreen {
+  display:none;
+}
+
+/*end   : admin css*/
+
+.inhabilitat,
+.inhabilitat input,
+.inhabilitat select,
+.inhabilitat textarea {
+	color: rgb(90,90,90);
+}
+.inhabilitat input.text,
+.inhabilitat textarea.text {
+	border: 1px solid rgb(90,90,90);
+}
+
+a.inhab{
+    cursor:default;
+}
+
+a.ascendent {
+	padding-right: 13px;
+      	width: 100%;
+	background: transparent url(/ParticipadasIntosWeb/web/img/modelos/tablas-icono-ordenar-ascendente.gif) no-repeat 100% 50%;
+}
+a.descendent {
+	padding-right: 13px;
+      	width: 100%;
+	background: transparent url(/ParticipadasIntosWeb/web/img/modelos/tablas-icono-ordenar-descendente.gif) no-repeat 100% 50%;
+}
+
+.postit{
+	position:absolute;
+	font-size:11px;
+	background-color:#d3e3f6;
+	font-family:verdana,thaoma,arial;
+	color:#000077;
+	padding:5px;
+	display:none;
+	z-index:999;
+	border:1px solid #000077;
+}
+
+#navegacio-contextual li.tornar a {
+	background: url(../img/icona-tornar.png) no-repeat center left;
+}
+
+.requiredError input.text,
+.requiredError textarea.text {
+	border: 1px solid rgb(255,0,0);
+	background-color:RGB(192,192,192);
+}
+
+input.number {
+	
+	border: 1px solid rgb(127,157,185);
+	text-align: right;
+	}
+
+
+textarea.info
+{
+    background-color:RGB(223,242,254);border:rgb(196,232,254) 1px solid;
+}
+input.info
+	{
+		background-color:RGB(223,242,254);border:rgb(196,232,254) 1px solid;
+	}
+	input.required
+	{
+		background-color:RGB(192,192,192);border:rgb(159,159,159) 1px solid;
+	}
+	infoError
+	input.infoError
+	{
+		background-color:RGB(223,242,254);border:red 1px solid;
+	}
+	input.requiredError
+	{
+		background-color:RGB(192,192,192);border:red 1px solid;
+	}
+	select.info
+	{
+		background-color:RGB(223,242,254);border:rgb(196,232,254) 1px solid;
+	}
+	select.required
+	{
+		background-color:RGB(192,192,192);border:rgb(159,159,159) 1px solid;
+	}
+	checkbox.info
+	{
+		background-color:RGB(223,242,254);border:rgb(196,232,254) 1px solid;
+	}
+	checkbox.required
+	{
+		background-color:RGB(192,192,192);border:rgb(159,159,159) 1px solid;
+	}
+
+
+.afegir{
+	background: url(/ParticipadasIntosWeb/web/img/icons/add.png) no-repeat center left;
+	padding-left: 30px;
+	padding-top: 7px;
+	height:30px;	
+}
+.editar{
+	background: url(/ParticipadasIntosWeb/web/img/icons/edit.jpg) no-repeat center left;
+	padding-left: 30px;
+	padding-top: 8px;
+	height:30px;	
+}
+
+.alta{
+	background: url(/ParticipadasIntosWeb/web/img/icons/blue/accept.png) no-repeat center left;
+	padding-left: 30px;
+	padding-top: 8px;
+	height:30px;	
+}
+
+.cerca{
+	background: url(/ParticipadasIntosWeb/web/img/icons/zoom.jpg) no-repeat center left;
+	padding-left: 30px;
+	padding-top: 8px;
+	height:30px;	
+}
+
+.selected{
+	background-color: rgb(96,126,154);
+	color: rgb(245,245,245);
+}
+.afegirDocument{
+	background: url(/ParticipadasIntosWeb/web/img/icons/admin/24/document_add.png) no-repeat center left;
+	padding-left: 25px;
+	padding-top: 9px;
+	height:30px;	
+}
+
+.avisDocument{
+	background: url(/ParticipadasIntosWeb/web/img/icons/admin/16/document_warning.png) no-repeat center left;
+	padding-left: 30px;
+	padding-top: 8px;
+	height:30px;	
+}
+
+div.capcalera {
+	width:100%;	
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	/*position:relative;
+  top: 8px;
+  */
+  margin-top:7px;
+  margin-bottom:-12px;   
+}
+
+h1.capcalera {	
+	height:26px;
+	font-size:1.6em;	
+	font-weight:bold;
+	padding-left: 5px;	
+	background-color: rgb(192,192,192);
+	color: rgb(85, 85, 85);	
+}

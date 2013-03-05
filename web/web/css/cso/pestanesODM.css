@@ -1,0 +1,21 @@
+/*estils per pestanyes deshabilidades de jquery tab*/
+ul.pestanyes li.ui-state-disabled a:link,
+ul.pestanyes li.ui-state-disabled a:visited {
+	font-weight: bold;
+	color: rgb(180,180,180);
+}
+ul.pestanyes li.ui-state-disabled {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat left -198px;
+	margin: 0.2em 1px -0.1em 0;
+	float: left;
+}
+ul.pestanyes li.ui-state-disabled a {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat right -198px;
+	padding: 0.5em 14px 0.3em 14px;
+}
+.ui-tabs-panel{
+	width: 950px;
+}
+.ui-tabs-hide{
+	display: none;
+}

@@ -1,0 +1,22 @@
+
+
+/*-- Pestanyes
+------------------------------------------------------------------------- */
+#pestanyes-globals {
+
+    background: transparent url(../web/mga/modelos/degradat-vertical-gris-blanc.jpg) repeat-x bottom;
+	margin: 0 0 3px 0px;
+}
+ul.pestanyes {
+	border-bottom: 1px solid rgb(135,155,179);
+	padding-bottom: 2.2em;
+	padding-left: 0px;
+}
+
+ul.pestanyes li.seleccionat a {
+	padding-bottom: 0.4em;
+}
+
+div#titol-pantalla p {
+	padding-right: 23px;	
+}

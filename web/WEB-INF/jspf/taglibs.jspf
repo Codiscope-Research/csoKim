@@ -1,0 +1,16 @@
+<%-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> --%>
+
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
+<%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/fn.tld" prefix="fn"%>
+
+ <bean:define id="contexte" value="<%= es.intos.gdscso.utils.Recursos.contexte%>"/>
+ <bean:define id="aplicatiu" value="<%= es.intos.gdscso.utils.Recursos.aplicatiu%>"/>
+ <bean:define id="version" value="<%= es.intos.gdscso.utils.Recursos.version%>"/>
+ <bean:define id="perfil_usuari" value="<%= es.intos.gdscso.on.Perfil.PERFIL_USUARIO%>"/>
+ <bean:define id="perfil_administrador" value="<%= es.intos.gdscso.on.Perfil.PERFIL_ADMINISTRADOR%>"/>
+ 
+ 

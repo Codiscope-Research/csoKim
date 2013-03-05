@@ -1,0 +1,202 @@
+
+/* REGLAS DE DISEÑO */
+
+body {   
+   font-family: Verdana;
+   background-color: #EDEFEE;
+}
+
+.right
+{
+    text-align: right;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.error
+{
+    font-style: italic;
+    font-size: 20px;
+    color: Red;
+    position :Absolute;
+    left: 370px;
+    top: 320px;
+}
+
+/***********************************/
+/*     Vista: login*/
+/***********************************/
+
+#loginContainer
+{
+    position: absolute;
+    height: 486px;
+    width: 798px;
+    top: 50%;
+    left: 50%;
+    margin-top: -243px;
+    margin-left: -399px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    background-image: url("../images/background-3.jpg");
+    background-repeat: no-repeat;
+
+}
+
+#logo
+{
+    position: absolute;
+    width: 320px;
+    height: 100px;
+    left: 10px;
+    top: 20px;
+    background-image: url("../images/myVuelingLogo.gif");
+    background-repeat: no-repeat;
+}
+
+#loginBox
+{
+    position: absolute;
+    left: 20px;
+    top: 280px;
+    width: 290px;
+}
+
+
+
+#tLogin
+{
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.loginData
+{
+    width: 150px;
+}
+
+.loginButton
+{
+	width: 90px;
+}
+
+/***********************************/
+/*     Vistas de error             */
+/***********************************/
+
+#errorContainer
+{
+    position: absolute;
+    height: 486px;
+    width: 798px;
+    top: 50%;
+    left: 50%;
+    margin-top: -243px;
+    margin-left: -399px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    background-image: url("../images/background-2.jpg");
+    background-repeat: no-repeat;
+}
+
+#errorMessage
+{
+    position: absolute;
+    left: 10px;
+    top: 260px;
+    width: 270px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: justify;
+}
+.CapaCusa
+{
+	background-image: url("/ParticipadasIntosWeb/web/img/portal/capaCusa.jpg");
+}
+.loginDiv
+{
+	font-family: Tahoma; 
+	font-size: x-small; 
+	font-weight: bold; 
+	width: 900px;
+	height: 600px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	background: url("/ParticipadasIntosWeb/web/img/portal/capaCusa.jpg") no-repeat right top;
+	margin-left:-490px;
+	margin-top:-320px;
+	
+}
+.cajaLogin
+{
+	background-color: #EFF3FB;
+	position:absolute;
+	
+	border: Solid;
+	border-width: 1px;
+	background-color:Gray;
+	border-color:Gray;
+	font-family: Verdana;
+	font-size: 0.8em;
+	color:White;
+	top:5px;
+	right:100px;
+	width: 200px;
+	height: 70px /*ForeColor="#333333" */;
+	
+}
+.AnchoLabel
+{
+  margin-top: 4px;
+	width:20px;
+}
+.cajaLogin input
+{
+	width:100px;
+}
+
+.bandaNegra
+{	position:absolute;
+ 	left :100px;
+	top:200px;
+	width: 800px;
+	height:110px;
+	background-color:Gray ;
+}
+.buttonLogin
+{
+	position: absolute;
+	bottom:12px;
+	right:120px;
+	
+}
+.buttonLogin input
+{
+	background-color:White;
+	/*border-color:#507CD1;*/
+	border-color:Gray;
+  border-style:Solid;
+  border-width:1px;
+   font-family:Verdana;
+   font-size:"0.8em";
+    /*Color:#284E98;*/
+  color:#434343;
+  width:100px;
+  height:21px;
+}
+.Titulo
+{
+	position: absolute;
+	top: 230px;
+	right: 100px;
+	font-family: Tahoma;
+	font-size: 90px;
+	color: #606060;
+	font-weight: bold;
+}

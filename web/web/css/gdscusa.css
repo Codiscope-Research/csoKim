@@ -1,0 +1,282 @@
+
+body {
+	color: rgb(51,51,51);
+	font: 0.6em/1.2 Verdana, Tahoma, Geneva, sans-serif;
+	font: 0.75em/1.2 Verdana, Tahoma, Geneva, sans-serif;
+	margin: 0 18px 18px 18px;
+}
+button,
+input,
+select,
+textarea {
+	color: rgb(51,51,51);
+	font-family: Verdana, Tahoma, Geneva, sans-serif;
+}
+a:link,
+a:visited {
+	color: rgb(26,100,164);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: 0;
+}
+
+/*-- Taules
+------------------------------------------------------------------------- */
+table {
+	border: 1px solid rgb(165, 172, 178);
+	border-collapse: collapse;
+	clear: both; 
+	font-size: 1em;
+	width: 100%;
+	text-align: left;
+}
+.contenidor-taula {
+	position: relative;
+	margin-bottom: 1.4em;
+}
+table thead tr {
+	background: rgb(240, 242, 249) url(/ParticipadasIntosWeb/web/img/modelos/tablas-fondo-cabecera.gif) repeat-x left bottom;
+}
+table thead tr th {
+	border-bottom: 1px solid rgb(165, 172, 178);
+	font-weight: normal;
+}
+table tbody th,
+table tbody td {
+	border-top: 1px solid rgb(220,220,220);
+}
+table th,
+table td {
+	padding: 3px 6px;
+	vertical-align:  top;
+}
+caption {
+	font-weight: bold;
+	padding-bottom: 0.3em;
+	text-align: left;
+}
+div.contenidor-taula p.nota {
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+table p {
+	margin:  0;
+	padding:  0;
+}
+table tr.destacada {
+	background-color: rgb(192,210,231);
+}
+table thead th.destacada {
+	background: rgb(182,201,228) url(/ParticipadasIntosWeb/web/img/modelos/tablas-fondo-cabecera-destacada.gif) repeat-x left bottom;
+	color: rgb(48,66,87);
+}
+table tbody td.destacada,
+table tbody th.destacada {
+	background-color: rgb(192,210,231);
+}
+table tbody th.destacada {
+	background-color: rgb(192,210,231);
+}
+table tbody th.has-tooltip,
+table tbody td.has-tooltip {
+	background-image: url(/ParticipadasIntosWeb/web/img/modelos/tablas-icono-tooltip.gif);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+}
+
+.parell {
+	background-color: rgb(245,245,245);
+}
+
+caption {
+}
+table th.esq,
+table td.esq {
+	text-align: left;
+}
+table th.cen,
+table td.cen {
+	text-align: center;
+}
+table th.dre,
+table td.dre {
+	text-align: right;
+}
+
+table.seleccio th { 
+ position:relative;
+ top: expression(document.getElementById("divScroll").scrollTop-1); /* IE5+ only */
+ z-index: 10;
+}
+
+table.seleccio tr.blanco th {
+ background:none;
+ background-color:white;
+}
+
+
+table.seleccio {
+  font-size: 12px;
+}
+
+table.noborder {
+  border:none;
+}
+
+table.noborder tr {
+  border:none;
+}
+
+table.noborder tr td {
+  border:none;
+}
+
+
+/* -- fi taules --*/
+
+/*--- Contenidors
+------------------------------------------------------------------------- */
+div.panel {
+	position: relative;
+	margin-bottom: 16px;
+	
+}
+
+div.panel .titol-contenidor {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 0 0px 0;
+	padding: 0px 10px;
+	height:20px;
+	cursor:hand;
+}
+
+div.menu {
+	border: 1px solid rgb(152,170,203);
+}
+
+div.menu .titol-contenidor {
+	background: rgb(153,171,204) url(/ParticipadasIntosWeb/web/img/modelos/contenidors-sprites.jpg) repeat-x 0 -40px;
+	border-bottom: 0px solid rgb(192,192,192);
+	color: rgb(36,74,113);
+}
+
+div.contenidor {
+	height: 1%; /* hasLayout per que es posicionin correctament els rounded corners */
+}
+div.contenidor .titol-contenidor {
+/*	position: relative;*/
+}
+
+div.menu {
+	border: 1px solid rgb(152,170,203);
+}
+
+div.menu .titol-contenidor {
+	background: rgb(153,171,204) url(/ParticipadasIntosWeb/web/img/modelos/contenidors-sprites.jpg) repeat-x 0 -40px;
+	border-bottom: 1px solid rgb(192,192,192);
+	color: rgb(36,74,113);
+}
+
+------Contenidors------------------------------------------------------------------- */
+div.panel {
+	height: 1%; /* hasLayout per que es posicionin correctament els rounded corners */
+}
+div.panel .titol-contenidor {
+/*	position: relative;*/
+}
+
+
+
+/*-- Pestanyes
+------------------------------------------------------------------------- */
+#pestanyes-globals {
+	background: transparent url(/ParticipadasIntosWeb/web/img/modelos/degradat-vertical-gris-blanc.jpg) repeat-x bottom;
+	clear: both;
+	padding-bottom: 14px;
+	margin: 0 -18px 3px -18px;
+}
+ul.pestanyes,
+ul.pestanyes-submenu {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+ul.pestanyes a:link,
+ul.pestanyes-submenu a:link,
+ul.pestanyes a:visited,
+ul.pestanyes-submenu a:visited {
+	color: rgb(102,102,102);
+	text-decoration: none;
+	white-space: nowrap;
+}
+ul.pestanyes li.seleccionat a:link,
+ul.pestanyes li.seleccionat a:visited{
+	color: rgb(0,0,0);
+	font-weight: bold;
+}
+
+ul.pestanyes-submenu li.seleccionat a:link,
+ul.pestanyes-submenu li.seleccionat a:visited {
+	color: rgb(0,97,152);
+	font-weight: bold;
+}
+ul.pestanyes li.deshabilitat a:link,
+ul.pestanyes li.deshabilitat a:visited {
+	font-weight: bold;
+	color: rgb(180,180,180);
+}
+ul.pestanyes {
+	border-bottom: 1px solid rgb(135,155,179);
+	padding-bottom: 2.2em;
+	padding-left: 16px;
+}
+ul.pestanyes li {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat left 2px;
+	margin: 0.2em 1px -0.1em 0;
+	float: left;
+}
+ul.pestanyes li a {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat right 2px;
+	display: block;
+	padding: 0.5em 14px 0.3em 14px;
+	margin-left: 4px;
+}
+ul.pestanyes li.seleccionat {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat left -100px;
+}
+ul.pestanyes li.seleccionat a {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat right -100px;
+	padding-bottom: 0.35em;
+}
+ul.pestanyes li.deshabilitat {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat left -198px;
+	margin: 0.2em 1px -0.1em 0;
+	float: left;
+}
+ul.pestanyes li.deshabilitat a {
+	background: url(/ParticipadasIntosWeb/web/img/modelos/pestanyes-sprites.jpg) no-repeat right -198px;
+	padding: 0.5em 14px 0.3em 14px;
+}
+ul.pestanyes a:link,
+ul.pestanyes a:visited {
+	font-weight: bold;
+}
+ul.pestanyes-submenu {
+	clear: left;
+	padding: 6px 0 0 15px;
+}
+ul.pestanyes-submenu li {
+	border-right: 1px solid rgb(102,102,102);
+	display: inline;
+	padding: 0 15px;
+}
+ul.pestanyes-submenu li.darrer {
+	border-right-width: 0;
+}
+
